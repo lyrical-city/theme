@@ -1,0 +1,64 @@
+{
+  "name": "@lyrical/theme",
+  "version": "0.1.0",
+  "description": "Lyrical Theme.",
+  "keywords": [
+    "typescript",
+    "css",
+    "lyrical",
+    "theme",
+    "colorfully"
+  ],
+  "author": {
+    "name": "City",
+    "email": "city@nanzc.com"
+  },
+  "homepage": "https://github.com/lyrical-city/theme#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lyrical-city/theme.git"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "es"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "unpkg": "dist/index.min.js",
+  "scripts": {
+    "prepare": "husky install",
+    "test": "jest",
+    "lint:es": "eslint -c .eslintrc.js --ext .ts,.tsx ./",
+    "lint:es-fix": "eslint --fix -c .eslintrc.js --ext .ts,.tsx ./",
+    "prepublishOnly": "npm run build",
+    "build": "lough-build",
+    "dev": "lough-build dev"
+  },
+  "devDependencies": {
+    "@lough/build-cli": "^0.2.0",
+    "@lough/commitlint-config": "^0.1.3",
+    "@lough/eslint-config": "^0.1.6",
+    "@lough/tsconfig": "^0.0.5",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.8.4",
+    "typescript": "^5.1.6"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint -c .eslintrc.js --ext .ts,.tsx"
+    ],
+    "*.{css,less,scss,styl}": [
+      "stylelint --config .stylelintrc.js *.{css,less,scss,styl}"
+    ]
+  },
+  "dependencies": {
+    "colorfully": "^0.2.1"
+  }
+}
